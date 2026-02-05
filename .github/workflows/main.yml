@@ -1,0 +1,21 @@
+name: Python Log Analyzer CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  run-log-analyzer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run log analyzer
+        run: python Advance_log_levels.py
